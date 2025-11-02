@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to 3D Animation Video - Hindi Audio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬 Text to 3D Animation Video</h1>
+            <p>Create stunning 3D animated videos with Hindi audio narration</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Left Panel - Controls -->
+            <div class="control-panel">
+                <div class="section">
+                    <h3>📝 Enter Your Text</h3>
+                    <textarea 
+                        id="textInput" 
+                        placeholder="अपना टेक्स्ट यहाँ लिखें... (Enter your text here in Hindi or English)"
+                        rows="4"
+                    >नमस्ते! यह एक 3D एनिमेशन है।</textarea>
+                </div>
+
+                <div class="section">
+                    <h3>🎨 Animation Style</h3>
+                    <select id="animationStyle">
+                        <option value="rotate">Rotate 360°</option>
+                        <option value="wave">Wave Motion</option>
+                        <option value="zoom">Zoom In/Out</option>
+                        <option value="bounce">Bounce</option>
+                        <option value="spiral">Spiral</option>
+                        <option value="float">Float</option>
+                    </select>
+                </div>
+
+                <div class="section">
+                    <h3>🎨 Text Color</h3>
+                    <div class="color-picker-group">
+                        <input type="color" id="textColor" value="#00ffff">
+                        <label for="textColor">Primary Color</label>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>⚡ Animation Speed</h3>
+                    <input type="range" id="animationSpeed" min="0.5" max="3" step="0.1" value="1">
+                    <span id="speedValue">1.0x</span>
+                </div>
+
+                <div class="section">
+                    <h3>🔊 Audio Settings</h3>
+                    <div class="audio-controls">
+                        <label>
+                            <input type="checkbox" id="enableAudio" checked>
+                            Enable Hindi Audio
+                        </label>
+                        <div class="voice-settings">
+                            <label for="speechRate">Speech Rate:</label>
+                            <input type="range" id="speechRate" min="0.5" max="2" step="0.1" value="1">
+                            <span id="rateValue">1.0x</span>
+                        </div>
+                        <div class="voice-settings">
+                            <label for="speechPitch">Pitch:</label>
+                            <input type="range" id="speechPitch" min="0.5" max="2" step="0.1" value="1">
+                            <span id="pitchValue">1.0x</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>📹 Video Settings</h3>
+                    <div class="video-settings">
+                        <label for="videoDuration">Duration (seconds):</label>
+                        <input type="number" id="videoDuration" min="3" max="30" value="10">
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button id="previewBtn" class="btn btn-primary">
+                        👁️ Preview Animation
+                    </button>
+                    <button id="generateBtn" class="btn btn-success">
+                        🎥 Generate Video
+                    </button>
+                    <button id="downloadBtn" class="btn btn-download" disabled>
+                        ⬇️ Download Video
+                    </button>
+                </div>
+
+                <div id="status" class="status-message"></div>
+            </div>
+
+            <!-- Right Panel - 3D Canvas -->
+            <div class="canvas-panel">
+                <div id="canvasContainer">
+                    <canvas id="threejsCanvas"></canvas>
+                </div>
+                <div class="canvas-info">
+                    <p>🎬 Preview your 3D animation here</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Built with Three.js, Web Speech API & MediaRecorder API</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="audio-handler.js"></script>
+    <script src="video-recorder.js"></script>
+    <script src="three-animation.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
